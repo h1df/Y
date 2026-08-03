@@ -172,7 +172,7 @@
         const letters = "アァカサタナハマヤャラワン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         const chars = letters.split("");
         const size = 18;
-        const columns = canvas.width / size;
+        let columns = Math.floor(canvas.width / size);
         const drops = [];
         for (let i = 0; i < columns; i++) drops[i] = 1;
 
@@ -229,6 +229,9 @@
         window.onresize = () => {
             canvas.width = innerWidth;
             canvas.height = innerHeight;
+            columns = Math.floor(canvas.width / size);
+            drops.length = 0;
+            for (let i = 0; i < columns; i++) drops[i] = 1;
         };
     </script>
 </body>
